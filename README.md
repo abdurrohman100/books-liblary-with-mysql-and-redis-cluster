@@ -3,7 +3,7 @@
 
 ## Arsitektur
 
-![Arsitektur](https://link)
+![Arsitektur](https://github.com/abdurrohman100/books-liblary-with-mysql-and-redis-cluster/blob/main/assets/Arsi.png)
 
 
 
