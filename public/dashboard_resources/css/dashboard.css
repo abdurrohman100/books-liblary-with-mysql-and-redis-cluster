@@ -1,0 +1,81 @@
+
+/* home student dashboard, employer dashboard, guest dashboard */
+.menu-card {
+    -webkit-transition: background-color 0.2s ease-out, color 0.2s ease-in;
+    -moz-transition: background-color 0.2s ease-out, color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-out, color 0.2s ease-in;
+    -ms-transition: background-color 0.2s ease-out, color 0.2s ease-in;
+    transition: background-color 0.2s ease-out, color 0.2s ease-in;
+}
+
+.menu-card:hover{
+    border: red 1px solid;
+
+    color: #ffc415;
+
+    background-color: rgb(1, 56, 128);
+
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -ms-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+.btn-yl {
+    background-color: #ffc415;
+}
+
+/* * submit laporan bulanan */
+
+.proses-bisnis .catatan-pertanyaan p {
+    font-weight: 700;
+}
+
+.proses-bisnis {
+    margin-bottom: 40px;
+}
+
+.proses-bisnis:last-child {
+    margin-bottom: 0px;
+}
+
+/* * submit kontrol bulanan */
+
+.judul-aspek p {
+    font-weight: 700;
+}
+
+.sub-indikator {
+    margin-left: 25px;
+}
+hr.divider {
+    margin: 40px 0px 40px 0px;
+}
+
+/* * view kontrol bulanan */
+.indikator-v {
+    
+}
+
+.penilaian-v {
+    margin: 10px 0px 50px 0px;
+}
+
+.sub-penilaian-v {
+    margin-left: 25px;
+}
+
+.komentar-judul {
+    font-weight: 700;
+}
+
+.konten-review {
+    margin-bottom: 25px;
+}
+
+.red-no-review {
+    color: red;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
