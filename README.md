@@ -1,3 +1,137 @@
+
+# books-liblary-with-mysql-and-redis-cluster
+
+## Arsitektur
+
+![Arsitektur](https://link)
+
+
+
+## Konfiguras
+### Redis
+
+- Pada /etc/redis/redis.conf
+Coomment
+```
+#bind 127.0.0.1 ::1
+```
+
+Ubah protected-mode menjadi no dan
+```
+protected-mode no
+```
+
+Tambahkan slave of pada Redis 1 dan Redis 2 menuju Redis Master 
+```
+slaveof 10.0.0.94 6379
+```
+
+- Buat file /etc/redis/sentinel.conf dan tambahkan konfigurasi berikut dimana 10.0.0.94 adalah IP Redis Master
+
+```
+sentinel myid 9862e14b6d9fb11c035c4a28d48573455a7876a2
+sentinel monitor redis-primary 10.0.0.94 6379 2
+sentinel down-after-milliseconds redis-primary 2000
+sentinel failover-timeout redis-primary 5000
+protected-mode no
+
+# Run in production with systemd
+logfile "/var/log/redis/sentinel.log"
+pidfile "/var/run/redis/sentinel.pid"
+daemonize yes
+```
+
+- Konfigurasi untuk Servis Sentinel
+```
+[Unit]
+Description=Sentinel for Redis
+After=network.target
+
+[Service]
+Type=forking
+User=redis
+Group=redis
+PIDFile=/var/run/redis/sentinel.pid
+ExecStart=/usr/bin/redis-server /etc/redis/sentinel.conf --sentinel
+ExecStop=/bin/kill -s TERM $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### HaProxy
+
+Konfigurasi /etc/haproxy/haproxy.cfg
+
+```
+global
+	daemon
+	maxconn 256
+
+
+defaults
+	mode tcp
+	timeout connect 5000ms
+	timeout client 50000ms
+	timeout server 50000ms
+
+
+frontend http
+	bind :8080
+	default_backend stats
+
+
+backend stats
+	mode http
+	stats enable
+
+	stats enable
+	stats uri /
+	stats refresh 10s
+	stats show-legends
+	stats admin if TRUE
+
+
+frontend redis-read
+    bind *:6379
+    default_backend redis-online
+
+
+frontend redis-write
+	bind *:6380
+	default_backend redis-primary
+
+
+backend redis-primary
+	mode tcp
+	balance first
+	option tcp-check
+
+	tcp-check send info\ replication\r\n
+	tcp-check expect string role:master
+
+	server redis-01:10.0.0.94:6379 10.0.0.94:6379 maxconn 1024 check inter 10s
+	server redis-02:10.0.0.237:6379 10.0.0.237:6379 maxconn 1024 check inter 10s
+	server redis-03:10.0.0.216:6379 10.0.0.216:6379 maxconn 1024 check inter 10s
+
+
+backend redis-online
+	mode tcp
+	balance roundrobin
+	option tcp-check
+
+	tcp-check send PING\r\n
+	tcp-check expect string +PONG
+
+	server redis-01:10.0.0.94:6379 10.0.0.94:6379 maxconn 1024 check inter 10s
+	server redis-02:10.0.0.237:6379 10.0.0.237:6379 maxconn 1024 check inter 10s
+	server redis-03:10.0.0.216:6379 10.0.0.216:6379 maxconn 1024 check inter 10s
+```
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -64,4 +198,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# books-liblary-with-mysql-and-redis-cluster
+
