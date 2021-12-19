@@ -3,23 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use Session;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
 {
     
     
-    public function __construct(){
-        $this->middleware('auth');
+    // public function __construct(){
+    //     $this->middleware('auth');
+    // }
+
+    public function borrowing($book) {
+
+        $uid= Session::get('id');
+
+        // dd($book);
+
+        Reservation::create([
+            'user_id' => $uid,
+            'book_id'   => $book,
+            'checked_out_at' => now(),
+        ]);
+
+        return redirect()->back();
+
+        // $book->checkout($uid);
     }
 
-    public function borrowing(Book $book) {
-        $book->checkout(auth()->user());
-    }
-
-    public function returning(Book $book) {
+    public function returning($book) {
+        $uid= Session::get('id');
         try {
-            $book->checkin(auth()->user());
+            $reservation = Reservation::where('user_id', $uid)
+            ->where('book_id',$book)
+            ->whereNotNull('checked_out_at')
+            ->whereNull('checked_in_at')
+            ->first();
+    
+            if(is_null($reservation)) {
+                throw new \Exception();
+            }
+    
+            $reservation->update([
+                'checked_in_at' => now(),
+            ]);
+            return redirect()->back();
+
         } catch(\Exception $err) {
             return response([], 404);
         }

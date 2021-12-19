@@ -14,7 +14,7 @@
         {{-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
         </div>
         <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
+        <a href="#" class="d-block">{{session('name')}}</a>
         </div>
     </div>
 
@@ -22,12 +22,12 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item has-treeview
-                {{ Request::is('dashboard/st/profile') ? "menu-open" : "" }}
-                {{ Request::is('dashboard/st/profile/edit') ? "menu-open" : "" }}
+                {{ Request::is('book/create') ? "menu-open" : "" }}
+                {{ Request::is('book') ? "menu-open" : "" }}
                 ">
                     <a href="#" class="nav-link
-                    {{ Request::is('dashboard/st/profile') ? "active" : "" }}
-                    {{ Request::is('dashboard/st/profile/edit') ? "active" : "" }}
+                    {{ Request::is('book/create') ? "active" : "" }}
+                    {{ Request::is('book') ? "active" : "" }}
                     ">
                         <i class="nav-icon fas fa-address-card"></i>
                         <p>
@@ -37,72 +37,21 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/dashboard/st/profile"
-                                class="nav-link {{ Request::is('dashboard/st/profile') ? "active" : "" }}">
+                            <a href="{{route("book.create")}}"
+                                class="nav-link {{ Request::is('book/create') ? "active" : "" }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Buat Buku</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/dashboard/st/profile/edit"
-                                class="nav-link {{ Request::is('dashboard/st/profile/edit') ? "active" : "" }}">
+                            <a href="{{route("book.index")}}"
+                                class="nav-link {{ Request::is('book') ? "active" : "" }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Daftar Buku</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
-
-                {{-- <li class="nav-item has-treeview
-                {{ Request::is('dashboard/st/create-service') ? "menu-open" : "" }}
-                {{ Request::is('dashboard/st/service-approval') ? "menu-open" : "" }}
-                {{ Request::is('dashboard/st/service-applicant-pending') ? "menu-open" : "" }}
-                {{ Request::is('dashboard/st/service-applicant-accepted') ? "menu-open" : "" }}
-                ">
-                    <a href="#" class="nav-link
-                    {{ Request::is('dashboard/st/create-service') ? "active" : "" }}
-                    {{ Request::is('dashboard/st/service-approval') ? "active" : "" }}
-                    {{ Request::is('dashboard/st/service-applicant-pending') ? "active" : "" }}
-                    {{ Request::is('dashboard/st/service-applicant-accepted') ? "active" : "" }}
-                    ">
-                        <i class="nav-icon fas fa-briefcase"></i>
-                        <p>
-                            Kelola Reservasi
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/dashboard/st/create-service"
-                                class="nav-link {{ Request::is('dashboard/st/create-service') ? "active" : "" }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Post new service</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/dashboard/st/service-approval"
-                                class="nav-link {{ Request::is('dashboard/st/service-approval') ? "active" : "" }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>View services approval</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/dashboard/st/service-applicant-pending"
-                                class="nav-link {{ Request::is('dashboard/st/service-applicant-pending') ? "active" : "" }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Pending applicants</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/dashboard/st/service-applicant-accepted"
-                                class="nav-link {{ Request::is('dashboard/st/service-applicant-accepted') ? "active" : "" }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Accepted applicants</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
 
             </ul>
         </nav>

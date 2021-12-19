@@ -10,11 +10,10 @@
                                 </a>
                             </div>
                             <p>
-                                humas@its.ac.id <br>
-                                (031) 5994251 <br>
-                                Kampus ITS, Sukolilo, Jl. Raya ITS, Keputih, Surabaya, Kota SBY, Jawa Timur 60117
+                                abdurrohman9i03@gmail.com <br>
+                                085730105094 <br>
                             </p>
-                            <div class="socail_links">
+                            {{-- <div class="socail_links">
                                 <ul>
                                     <li>
                                         <a href="https://id-id.facebook.com/InstitutTeknologiSepuluhNopember/">
@@ -25,7 +24,7 @@
                                         <a href="#">
                                             <i class="fa fa-google-plus"></i>
                                         </a>
-                                    </li> --}}
+                                    </li>
                                     <li>
                                         <a href="https://twitter.com/its_campus">
                                             <i class="fa fa-twitter"></i>
@@ -37,25 +36,22 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
                     <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget wow fadeInUp" data-wow-duration="1.1s" data-wow-delay=".4s">
+                        {{-- <div class="footer_widget wow fadeInUp" data-wow-duration="1.1s" data-wow-delay=".4s">
                             <h3 class="footer_title">
                                 ITS
                             </h3>
                             <ul>
                                 <li><a href="https://www.its.ac.id/id/contact/">Kontak</a></li>
-                                {{-- <li><a href="#"> Pricing</a></li>
-                                <li><a href="#">Carrier Tips</a></li>
-                                <li><a href="#">FAQ</a></li> --}}
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".5s">
+                        {{-- <div class="footer_widget wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".5s">
                             <h3 class="footer_title">
                                 Fasilitas
                             </h3>
@@ -65,7 +61,7 @@
                                 <li><a href="#">Seminar</a></li>
                                 <li><a href="#">Investasi</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                    
                     {{-- <div class="col-xl-4 col-md-6 col-lg-4">

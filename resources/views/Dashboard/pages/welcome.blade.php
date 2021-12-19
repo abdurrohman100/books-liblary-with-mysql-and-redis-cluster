@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Dashboard Student</h1>
+                <h1 class="m-0 text-dark">Dashboard</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -28,35 +28,6 @@
 <!-- Main content -->
 <div class="content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 col-sm-12">
-                <div class="card menu-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Cari pekerjaan</h5><br><br>
-
-                        <a href="/jobs" class="float-right card-link stretched-link btn btn-sm btn-yl">Halaman job</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card menu-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Buat Jasa</h5><br><br>
-
-                        <a href="/dashboard/st/create-service" class="float-right card-link stretched-link btn btn-sm btn-yl">Halaman jasa</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card menu-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Jadi investor</h5><br><br>
-
-                        <a href="/investasi-fund" class="float-right card-link stretched-link btn btn-sm btn-yl">Halaman Investasi</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>
